@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ZEUS X IOS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: #111;
+      font-family: 'Prompt', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: white;
+    }
+
+    .container {
+      width: 320px;
+      text-align: center;
+    }
+
+    .login-box, .panel {
+      background-color: #1f1f1f;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px red;
+      display: none;
+    }
+
+    .login-box.active, .panel.active {
+      display: block;
+    }
+
+    input[type="password"] {
+      padding: 10px;
+      width: 90%;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: none;
+      text-align: center;
+    }
+
+    .btn-login {
+      background-color: red;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 15px;
+      width: 100%;
+    }
+
+    .panel h2 {
+      color: #ff3c3c;
+      margin-bottom: 5px;
+    }
+
+    .panel h4 {
+      color: #bbb;
+      margin-bottom: 20px;
+    }
+
+    .toggle-group {
+      background-color: #2a2a2a;
+      margin: 10px 0;
+      padding: 10px 15px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #555;
+      transition: 0.3s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: red;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+
+    .btn-group {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .btn {
+      background-color: red;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 45%;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 0.8em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Login Screen -->
+    <div class="login-box active" id="loginBox">
+      <h2>ZEUS IOSV3</h2>
+      <input type="password" id="passwordInput" placeholder="รหัสผ่าน">
+      <button class="btn-login" onclick="checkPassword()">เข้าสู่ระบบ</button>
+    </div>
+
+    <!-- Main Panel -->
+    <div class="panel" id="mainPanel">
+      <h2>ZEUS PANEL IOS V3</h2>
+      <h4>PANEL IOS BY ZEUSX</h4>
+
+      <div class="toggle-group">
+        <span>AIMBOT IOS99%</span>
+        <label class="switch">
+          <input type="checkbox" class="toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-group">
+        <span>DPI 4400</span>
+        <label class="switch">
+          <input type="checkbox" class="toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-group">
+        <span>240HZ</span>
+        <label class="switch">
+          <input type="checkbox" class="toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-group">
+        <span>ระดับความดูดสูง</span>
+        <label class="switch">
+          <input type="checkbox" class="toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-group">
+        <span>ระดับDPIสูง</span>
+        <label class="switch">
+          <input type="checkbox" class="toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn" onclick="startFunction()">เริ่มทำงาน</button>
+        <button class="btn" onclick="resetToggles()">รีเซ็ท</button>
+      </div>
+
+      <div class="footer">
+        ZEUS SHOP เว็บบริการจำหน่ายไฟล์ดูดหัวที่ดีที่สุด!
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const correctPassword = "zeusv3";
+
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === correctPassword) {
+        document.getElementById("loginBox").classList.remove("active");
+        document.getElementById("mainPanel").classList.add("active");
+      } else {
+        alert("รหัสผ่านไม่ถูกต้อง!");
+      }
+    }
+
+    function resetToggles() {
+      document.querySelectorAll('.toggle').forEach(el => el.checked = false);
+    }
+
+    function startFunction() {
+      alert("เริ่มทำงานแล้ว!");
+    }
+  </script>
+</body>
+</html>
